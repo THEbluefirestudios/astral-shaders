@@ -1,0 +1,31 @@
+#define SHADOW_MAP_RESOLUTION 2048 //Shadow map resolution, hisgher is better, but FPS go low [512 1024 2048 4096 8192]
+#define SHADOW_BLUR 01.0 //Shadow blur, higher is more blurry and u dont see the pixels of the shadowmap [0.0 0.25 0.5 0.75 1.0]
+#define SHADOW_DISTANCE 128 //How far away in blocks shadows of objects are rendered, obv high values will make FPS number go bad [64 96 128 256]
+#define SHADOW_FRAMESKIP 1 // How many frames to skip before updating the shadowmap, like 2 is update every other frame, 3 is every 3rd frame, I would recommend this for high fps but still good shadows [1 2 3 4 5]
+
+#define BLOOM_ENABLED 1 //Enable bloom, this is a post processing effect that makes bright areas glow, it looks good but it also burns ur eyes sometimes [0 1]
+#define BLOOM_THRESHOLD 0.7 //How bright a pixel should be to burn ur eyes, lower values will burn ur eyes more [0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9]
+#define BLOOM_INTENSITY 0.3 //How strong the bloom effect is, higher values will make it more visible [0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9]
+#define BLOOM_SPREAD 0.8 //How much the bloom effect spreads, higher values will make it more halo-ey [0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9]
+
+#define GODRAY_INTENSITY 0.3 // God ray brightness. [0.0 0.1 0.2 0.3 0.4 0.5]
+#define GODRAY_SAMPLES 24 // God ray sample count. Higher is smoother but slower. [12 16 24 32]
+#define GODRAY_DECAY 0.93 // How quickly god rays fade along their length. [0.85 0.9 0.93 0.95 0.96 0.98]
+#define GODRAY_DENSITY 0.9 // God ray spread density. [0.2 0.3 0.4 0.5 0.7 1.0]
+#define GODRAY_FALLOFF 2.0 // How fast god rays fade with distance from the sun, higher keeps them tighter to it [1.0 2.0 3.0 4.0 6.0]
+#define GODRAY_NORMAL_BLUR 1.6 // Slight sideways blur in pixels to soften the ray edges [0.0 0.8 1.6 3.2]
+#define GODRAY_EDGE_FADE 0.25 // How close to the screen edge the sun must be before god rays start fading [0.1 0.25 0.5]
+#define GODRAY_NIGHT_INTENSITY 0.05 // God ray brightness multiplier at night [0.0 0.05 0.1 0.2 0.4]
+
+#define EXPOSURE_SUNRISE 0.7 // Scene brightness at sunrise. [0.4 0.5 0.6 0.7 0.8 0.9 1.0]
+#define EXPOSURE_NOON 1.3 // Scene brightness at noon. [0.8 1.0 1.1 1.2 1.3 1.5 1.8]
+#define EXPOSURE_SUNSET 0.7 // Scene brightness at sunset. [0.4 0.5 0.6 0.7 0.8 0.9 1.0]
+#define EXPOSURE_MIDNIGHT 0.18 // Scene brightness at midnight. [0.05 0.1 0.15 0.18 0.25 0.35]
+
+#define GRADE_SATURATION 1.15 // Final image color saturation. [0.8 0.9 1.0 1.1 1.15 1.3 1.5]
+#define GRADE_SHADOW_LIFT 0.92 // Lifts shadow detail, lower is softer. [0.8 0.85 0.9 0.92 0.95 1.0]
+#define GRADE_CONTRAST 1.08 // Final image contrast. [0.9 1.0 1.05 1.08 1.15 1.2]
+
+#define FOLIAGE_WAVE_STRENGTH 0.02 // Leaf and grass sway strength. [0.0 0.008 0.015 0.025 0.04]
+#define WATER_WAVE_STRENGTH 0.1 // Water surface wave strength. [0.0 0.025 0.05 0.08 0.12]
+#define ANTIALIASING 1 // Smooth out jagged pixel edges. 0 = Off, 1 = FXAA. [0 1]
