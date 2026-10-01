@@ -5,9 +5,9 @@
 
 uniform sampler2D colortex0;
 uniform sampler2D depthtex0;
-uniform sampler2D shadowtex0;
-uniform sampler2D shadowtex1;
-uniform sampler2D shadowcolor0;
+uniform sampler2D colortex6;
+uniform sampler2D colortex7;
+uniform sampler2D colortex8;
 uniform sampler2D colortex2;
 
 uniform mat4 gbufferModelViewInverse;
@@ -53,17 +53,17 @@ void main() {
   vec3 shadowNdcPos = shadowClipPos.xyz / shadowClipPos.w;
   vec3 shadowScreenPos = shadowNdcPos * 0.5 + 0.5;
 
-  float transparentShadow = step(shadowScreenPos.z, texture(shadowtex0, shadowScreenPos.xy).r);
+  float transparentShadow = step(shadowScreenPos.z, texture(colortex6, shadowScreenPos.xy).r);
 
   if (transparentShadow == 1.0) {
     godrayMask = vec4(1.0);
     return;
   }
 
-  float opaqueShadow = step(shadowScreenPos.z, texture(shadowtex1, shadowScreenPos.xy).r);
+  float opaqueShadow = step(shadowScreenPos.z, texture(colortex7, shadowScreenPos.xy).r);
 
   if (opaqueShadow == 0.0) {
-    vec4 shadowColor = texture(shadowcolor0, shadowScreenPos.xy);
+    vec4 shadowColor = texture(colortex8, shadowScreenPos.xy);
     godrayMask = vec4(shadowColor.rgb * (1.0 - shadowColor.a), 1.0);
   } else {
     godrayMask = vec4(0.0, 0.0, 0.0, 1.0);

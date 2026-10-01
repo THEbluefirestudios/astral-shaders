@@ -1,0 +1,91 @@
+option.SHADOW_MAP_RESOLUTION=Shadow Quality
+option.SHADOW_MAP_RESOLUTION.comment=Shadow map resolution, higher is better, but FPS go low.
+
+
+option.SHADOW_BLUR=Shadow Blur
+option.SHADOW_BLUR.comment=Shadow blur, higher is more blurry and u dont see the pixels of the shadowmap
+
+
+option.SHADOW_DISTANCE=Shadow Distance
+option.SHADOW_DISTANCE.comment=How far away in blocks shadows of objects are rendered, obv high values will make FPS number go bad
+
+
+option.SHADOW_FRAMESKIP=Shadow Frame-skip
+option.SHADOW_FRAMESKIP.comment=How many frames to skip before updating the shadowmap, like 2 is update every other frame, 3 is every 3rd frame, I would recommend this for high fps but still good shadows
+
+option.BLOOM_ENABLED=Bloom
+option.BLOOM_ENABLED.comment=Enable bloom, this is a post processing effect that makes bright areas glow, it looks good but it also burns ur eyes sometimes
+value.BLOOM_ENABLED.0=Off
+value.BLOOM_ENABLED.1=On
+
+option.BLOOM_THRESHOLD=Bloom Threshold
+option.BLOOM_THRESHOLD.comment=How bright a pixel should be to glow, lower values burn ur eyes more
+
+option.BLOOM_INTENSITY=Bloom Intensity
+option.BLOOM_INTENSITY.comment=How strong the bloom effect is, higher values make it more visible
+
+option.BLOOM_SPREAD=Bloom Spread
+option.BLOOM_SPREAD.comment=How much the bloom effect spreads, higher values make it more halo-ey
+
+option.GODRAY_INTENSITY=Godray Intensity
+option.GODRAY_INTENSITY.comment=God ray brightness, 0 disables them
+
+option.GODRAY_SAMPLES=Godray Samples
+option.GODRAY_SAMPLES.comment=God ray sample count, higher is smoother but slower
+
+option.GODRAY_DECAY=Godray Decay
+option.GODRAY_DECAY.comment=How quickly god rays fade along their length
+
+option.GODRAY_DENSITY=Godray Density
+option.GODRAY_DENSITY.comment=God ray spread density
+
+option.GODRAY_FALLOFF=Godray Falloff
+option.GODRAY_FALLOFF.comment=How fast god rays fade with distance from the sun, higher keeps them tighter to it
+
+option.GODRAY_NORMAL_BLUR=Godray Edge Softness
+option.GODRAY_NORMAL_BLUR.comment=Slight sideways blur in pixels to soften the ray edges
+
+option.GODRAY_EDGE_FADE=Godray Screen Fade
+option.GODRAY_EDGE_FADE.comment=How close to the screen edge the sun must be before god rays start fading
+
+option.GODRAY_NIGHT_INTENSITY=Godray Night Brightness
+option.GODRAY_NIGHT_INTENSITY.comment=God ray brightness multiplier at night
+
+option.GRADE_SATURATION=Saturation
+option.GRADE_SATURATION.comment=Final image color saturation
+
+option.GRADE_SHADOW_LIFT=Shadow Lift
+option.GRADE_SHADOW_LIFT.comment=Lifts shadow detail, lower is softer
+
+option.GRADE_CONTRAST=Contrast
+option.GRADE_CONTRAST.comment=Final image contrast
+
+option.EXPOSURE_SUNRISE=Sunrise Exposure
+option.EXPOSURE_SUNRISE.comment=Scene brightness at sunrise
+
+option.EXPOSURE_NOON=Noon Exposure
+option.EXPOSURE_NOON.comment=Scene brightness at noon
+
+option.EXPOSURE_SUNSET=Sunset Exposure
+option.EXPOSURE_SUNSET.comment=Scene brightness at sunset
+
+option.EXPOSURE_MIDNIGHT=Midnight Exposure
+option.EXPOSURE_MIDNIGHT.comment=Scene brightness at midnight
+
+option.FOLIAGE_WAVE_STRENGTH=Foliage Sway
+option.FOLIAGE_WAVE_STRENGTH.comment=Leaf and grass sway strength
+
+option.WATER_WAVE_STRENGTH=Water Waves
+option.WATER_WAVE_STRENGTH.comment=Water surface wave strength
+
+option.ANTIALIASING=FXAA Anti-aliasing
+option.ANTIALIASING.comment=Smooth out jagged pixel edges
+value.ANTIALIASING.0=Off
+value.ANTIALIASING.1=On
+
+option.ASTRAL_SHADERS=Astral Shaders
+value.ASTRAL_SHADERS.1=hi :3
+option.MADE_BY= Made by
+value.MADE_BY.1=BlueFireStudios
+
+profile.comment=Potato - runs on anything. Low - lighter shadows. Medium - balanced. High - full quality.

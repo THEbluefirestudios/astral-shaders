@@ -1,7 +1,7 @@
 #define SHADOW_MAP_RESOLUTION 2048 //Shadow map resolution, hisgher is better, but FPS go low [512 1024 2048 4096 8192]
-#define SHADOW_BLUR 01.0 //Shadow blur, higher is more blurry and u dont see the pixels of the shadowmap [0.0 0.25 0.5 0.75 1.0]
+#define SHADOW_BLUR 0.25 //Shadow blur, higher is more blurry and u dont see the pixels of the shadowmap [0.0 0.25 0.5 0.75 1.0]
 #define SHADOW_DISTANCE 128 //How far away in blocks shadows of objects are rendered, obv high values will make FPS number go bad [64 96 128 256]
-#define SHADOW_FRAMESKIP 1 // How many frames to skip before updating the shadowmap, like 2 is update every other frame, 3 is every 3rd frame, I would recommend this for high fps but still good shadows [1 2 3 4 5]
+#define SHADOW_FRAMESKIP 2 // How many frames to skip before updating the shadowmap, like 2 is update every other frame, 3 is every 3rd frame, I would recommend this for high fps but still good shadows [1 2 3 4 5]
 
 #define BLOOM_ENABLED 1 //Enable bloom, this is a post processing effect that makes bright areas glow, it looks good but it also burns ur eyes sometimes [0 1]
 #define BLOOM_THRESHOLD 0.7 //How bright a pixel should be to burn ur eyes, lower values will burn ur eyes more [0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9]
@@ -28,4 +28,7 @@
 
 #define FOLIAGE_WAVE_STRENGTH 0.02 // Leaf and grass sway strength. [0.0 0.008 0.015 0.025 0.04]
 #define WATER_WAVE_STRENGTH 0.1 // Water surface wave strength. [0.0 0.025 0.05 0.08 0.12]
-#define ANTIALIASING 1 // Smooth out jagged pixel edges. 0 = Off, 1 = FXAA. [0 1]
+#define ANTIALIASING 1 // Smooth out jagged pixel edges. [0 1]
+
+#define ASTRAL_SHADERS 1 // desc [1]
+#define MADE_BY 1 // DESC [1]

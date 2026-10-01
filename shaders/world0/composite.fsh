@@ -9,9 +9,9 @@ uniform sampler2D colortex1;
 uniform sampler2D colortex2;
 uniform sampler2D depthtex0;
 
-uniform sampler2D shadowtex0;
-uniform sampler2D shadowcolor0;
-uniform sampler2D shadowtex1;
+uniform sampler2D colortex6;
+uniform sampler2D colortex8;
+uniform sampler2D colortex7;
 
 uniform mat4 gbufferProjectionInverse;
 uniform mat4 shadowModelView;
@@ -21,6 +21,7 @@ const int colortex0Format = RGB16;
 */
 
 const int shadowMapResolution = 2048;
+const float shadowIntervalSize = 8.0;
 
 uniform vec3 shadowLightPosition;
 uniform mat4 gbufferModelViewInverse;
@@ -45,18 +46,29 @@ vec3 projectAndDivide(mat4 projectionMatrix, vec3 position){
 
 
 vec3 getShadow(vec3 shadowScreenPos){
+   vec2 texel = vec2(1.0 / float(shadowMapResolution));
+   vec2 f = fract(shadowScreenPos.xy * float(shadowMapResolution));
+   vec2 base = shadowScreenPos.xy - f * texel;
    vec2 spacing = vec2(SHADOW_BLUR * 2.0 / float(shadowMapResolution));
    vec3 result = vec3(0.0);
 
    for (int x = -1; x <= 1; x++){
      for (int y = -1; y <= 1; y++){
-       vec2 uv = shadowScreenPos.xy + vec2(float(x), float(y)) * spacing;
+       vec2 uv = base + vec2(float(x), float(y)) * spacing;
 
-       float transparentShadow = step(shadowScreenPos.z, texture(shadowtex0, uv).r); // sample the shadow map containing everything
+       float d00 = texture(colortex6, uv).r;
+       float d10 = texture(colortex6, uv + vec2(texel.x, 0.0)).r;
+       float d01 = texture(colortex6, uv + vec2(0.0, texel.y)).r;
+       float d11 = texture(colortex6, uv + texel).r;
+       float transparentShadow = step(shadowScreenPos.z, mix(mix(d00, d10, f.x), mix(d01, d11, f.x), f.y));
 
-       float opaqueShadow = step(shadowScreenPos.z, texture(shadowtex1, uv).r); // sample the shadow map containing only opaque stuff
+       float e00 = texture(colortex7, uv).r;
+       float e10 = texture(colortex7, uv + vec2(texel.x, 0.0)).r;
+       float e01 = texture(colortex7, uv + vec2(0.0, texel.y)).r;
+       float e11 = texture(colortex7, uv + texel).r;
+       float opaqueShadow = step(shadowScreenPos.z, mix(mix(e00, e10, f.x), mix(e01, e11, f.x), f.y));
 
-       vec4 shadowColor = texture(shadowcolor0, uv);
+       vec4 shadowColor = texture(colortex8, uv);
 
        if (transparentShadow == 1.0){
          result += vec3(1.0);
